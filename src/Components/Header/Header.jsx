@@ -4,7 +4,7 @@ import logo from "../../assets/babypop.png";
 
 const Header = () => {
     const nav =
-        <div className='flex text-pink-500'>
+        <div className='flex text-pink-500 font-medium italic'>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/alltoys'>ALL Toys</Link></li>
             <li><Link to='/mytoys'>My Toys</Link></li>
@@ -36,7 +36,8 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <button className="btn bg-pink-400">Login</button>
+                    <Link to='/login'><button className="btn bg-pink-400">Login</button>
+                    </Link>
                 </div>
             </div>
         </div>
