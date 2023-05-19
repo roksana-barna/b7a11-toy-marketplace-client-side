@@ -12,7 +12,25 @@ const MyToys = () => {
                 setMyToys(data)
             })
 
-    }, [])
+    }, []);
+    const handleDelete=id=>{
+        const proceed=confirm("Are you want to delete?");
+        if(proceed){
+            fetch(`http://localhost:5000/toys/${id}`,{
+                method:'DELETE'
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
+                if(data.deletedCount>0){
+                    alert('deleted successfully')
+                    const remaining =myToys.filter(mytoy=>mytoy._id!==id)
+                    setMyToys(remaining)
+                }
+            })
+
+        }
+    }
     return (
         <div className='w-9/12 mx-auto'>
             <div >
@@ -41,6 +59,7 @@ const MyToys = () => {
                         myToys.map(mytoy => <MyToysTable
                             key={mytoy._id}
                             mytoy={mytoy}
+                            handleDelete={handleDelete}
                         >
 
                         </MyToysTable>)
