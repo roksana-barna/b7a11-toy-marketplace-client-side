@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import img2 from'../../assets/welliewishers.png'
+import { AuthContext } from '../../provider/AuthProvider';
 
 const AddAToy = () => {
+  const {user}=useContext(AuthContext);
     const handleBuy=(event)=>{
         event.preventDefault();
         const form = event.target;
-        const sellerName = form.sellerName.value;
+        const sellerName = user?.displayName;
         const pictureUrl = form.pictureUrl.value;
         const name = form.name.value;
-        const sellerEmail=form.sellerEmail.value;
+        const email=user?.email;
         const subCategory=form.subCategory.value;
         const price=form.price.value;
         const rating=form.rating.value;
         const quantity=form.quantity.value;
 
         const description=form.description.value;
-        const toys={name, pictureUrl,sellerName,sellerEmail,subCategory,price,rating,quantity,description};
+        const toys={name, pictureUrl,sellerName,email,subCategory,price,rating,quantity,description};
         console.log(toys);
         form.reset();
         fetch('http://localhost:5000/toys',{
@@ -33,8 +35,10 @@ const AddAToy = () => {
                 alert('buy this toy successfully')
               }
         })
-
+        
     }
+   
+
     return (
         <div className='mt-8 w-9/12 mx-auto'>
             <img className='h-80 w-full' src={img2} alt="" />
@@ -50,25 +54,29 @@ const AddAToy = () => {
         
         <div className="mb-4">
           <label htmlFor="name" className="block text-pink-700 text-sm font-bold mb-2">Name:</label>
-          <input type="text" id="name" name="name" className="shadow appearance-none border rounded w-full py-2 px-3 text-pink-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter toy name" />
+          <input type="text" id="name"  name="name" className="shadow appearance-none border rounded w-full py-2 px-3 text-pink-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter toy name" />
         </div>
         
         <div className="mb-4">
           <label htmlFor="sellerName" className="block text-pink-700 text-sm font-bold mb-2">Seller Name:</label>
-          <input type="text" id="sellerName" name="sellerName" className="shadow appearance-none border rounded w-full py-2 px-3 text-pink-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter seller name" />
+          <input type="text" id="sellerName" defaultValue={user?.displayName} name="sellerName" className="shadow appearance-none border rounded w-full py-2 px-3 text-pink-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter seller name" />
         </div>
         
         <div className="mb-4">
           <label htmlFor="sellerEmail" className="block text-pink-700 text-sm font-bold mb-2">Seller Email:</label>
-          <input type="email" id="sellerEmail" name="sellerEmail" className="shadow appearance-none border rounded w-full py-2 px-3 text-pink-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter seller email" />
+          <input type="email" id="sellerEmail"  defaultValue={user?.email} name='email' className="shadow appearance-none border rounded w-full py-2 px-3 text-pink-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter seller email" />
         </div>
         
         <div className="mb-4">
           <label htmlFor="subCategory" className="block text-pink-700 text-sm font-bold mb-2">Sub-category:</label>
           <select id="subCategory" name="subCategory" className="shadow appearance-none border rounded w-full py-2 px-3 text-pink-700 leading-tight focus:outline-none focus:shadow-outline">
+          <option value="disney doll">disney doll</option>
+            <option value="dolly holly">dolly holly</option>
             <option value="baby dolls">baby dolls</option>
             <option value="barbie">barbie</option>
             <option value="american girl">American girl</option>
+            
+
           </select>
         </div>
         
