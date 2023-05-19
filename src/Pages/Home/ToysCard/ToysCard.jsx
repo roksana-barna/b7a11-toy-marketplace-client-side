@@ -1,7 +1,4 @@
 import React from 'react';
-
-
-
 const ToysCard = ({ toy }) => {
   const { name, pictureUrl, rating, price } = toy || {};
   return (

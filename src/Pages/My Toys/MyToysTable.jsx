@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
-const MyToysTable = ({ mytoy,handleDelete }) => {
-    const {users}=useContext(AuthContext);
-    const { pictureUrl, sellerName, email, subCategory, rating, quantity, description, price,_id} = mytoy;
-   
+const MyToysTable = ({ mytoy, handleDelete }) => {
+    const { users } = useContext(AuthContext);
+    const { pictureUrl, sellerName, email, subCategory, rating, quantity, description, price, _id } = mytoy;
+
     return (
         <div className="overflow-x-auto w-full">
             <table className="table w-full">
@@ -42,8 +42,8 @@ const MyToysTable = ({ mytoy,handleDelete }) => {
                             {description}
                         </td>
                         <td><Link to={`/update/${_id}`}><button className='bg-teal-500 p-2 rounded text-white'>update</button></Link></td>
-                        <td><button onClick={()=>handleDelete(_id)} className="btn btn-circle btn-outline bg-red-400">X</button>
-</td>
+                        <td><button onClick={() => handleDelete(_id)} className="btn btn-circle btn-outline bg-red-400">X</button>
+                        </td>
                     </tr>
                 </tbody>
 

@@ -13,21 +13,21 @@ const MyToys = () => {
             })
 
     }, []);
-    const handleDelete=id=>{
-        const proceed=confirm("Are you want to delete?");
-        if(proceed){
-            fetch(`http://localhost:5000/toys/${id}`,{
-                method:'DELETE'
+    const handleDelete = id => {
+        const proceed = confirm("Are you want to delete?");
+        if (proceed) {
+            fetch(`http://localhost:5000/toys/${id}`, {
+                method: 'DELETE'
             })
-            .then(res=>res.json())
-            .then(data=>{
-                console.log(data);
-                if(data.deletedCount>0){
-                    alert('deleted successfully')
-                    const remaining =myToys.filter(mytoy=>mytoy._id!==id)
-                    setMyToys(remaining)
-                }
-            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        alert('deleted successfully')
+                        const remaining = myToys.filter(mytoy => mytoy._id !== id)
+                        setMyToys(remaining)
+                    }
+                })
 
         }
     }
@@ -53,7 +53,7 @@ const MyToys = () => {
                                 <th>Delete</th>
                             </tr>
                         </thead>
-                        
+
                     </table>
                     {
                         myToys.map(mytoy => <MyToysTable

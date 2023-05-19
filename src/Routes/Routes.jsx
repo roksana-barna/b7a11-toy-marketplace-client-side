@@ -7,49 +7,55 @@ import Register from "../Pages/Register/Register";
 import AddAToy from "../Pages/AddAToy/AddAToy";
 import MyToys from "../Pages/My Toys/MyToys";
 import Update from "../Pages/Update/Update";
+import AllToys from "../Pages/AllToys/AllToys";
 
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element:<Main></Main>,
-      children:[
-      
-        {
-          path:'/',
-          element:<Home></Home>
-          
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
 
-        },
-        {
-          path:'/login',
-          element:<Login></Login>
-        },
-        {
-          path:'/register',
-          element:<Register></Register>
-        },
-        {
-          path:'/addatoy',
-          element:<AddAToy></AddAToy>
-        },
-        {
-          path:'/mytoys',
-          element:<MyToys></MyToys>
-        },
-        {
-          path: "/update/:id",
-          element: <Update></Update>,
-          loader:({params})=>fetch(`http://localhost:5000/toys/${params.id}`)
-        },
-        
+      {
+        path: '/',
+        element: <Home></Home>
 
-      ]
-     
-    },
-    {
-      path:"*",
-      element:<NotFound></NotFound>
-    }
-  ]);
-  export default router;
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
+      },
+      {
+        path: '/addatoy',
+        element: <AddAToy></AddAToy>
+      },
+      {
+        path: '/mytoys',
+        element: <MyToys></MyToys>
+      },
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
+        loader: ({ params }) => fetch(`http://localhost:5000/update/${params.id}`)
+      },
+      // {
+      //   path: "/alltoys",
+      //   element:<AllToys></AllToys>,
+      //   loader:()=>fetch('')
+
+      // },
+
+
+    ]
+
+  },
+  {
+    path: "*",
+    element: <NotFound></NotFound>
+  }
+]);
+export default router;

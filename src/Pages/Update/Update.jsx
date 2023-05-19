@@ -10,11 +10,12 @@ const Update = () => {
         const price = form.price.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
-
+        const updatetoys = {
+            price, quantity, description
+        }
         console.log(updatetoys)
-        const updatetoys = { price, quantity, description }
         // put
-        fetch(`http://localhost:5000/toys/${loadedtoys._id}`, {
+        fetch(`http://localhost:5000/update/${loadedtoys._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -31,15 +32,15 @@ const Update = () => {
     }
     return (
         <div>
-            <h2>cgncnfvmc{loadedtoys?.name}</h2>
             <div className='w-9/12 mx-auto'>
                 <div className="hero min-h-screen bg-base-200">
                     <div className="hero-content flex-col lg:flex-row">
                         <div className="text-center lg:text-left">
                             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                                 <div className="card-body">
+                                    <h1 className="text-3xl  text-center font-bold text-pink-500">Update your toys!</h1>
+                                    <h2 className='text-xl font-bold text-teal-700'>Toys Name:{loadedtoys.name}</h2>
 
-                                    <h1 className="text-3xl  text-center font-bold text-pink-500"> Please Login!</h1>
                                     <form onSubmit={handleUpdate}>
                                         <div className="form-control">
                                             <label className="label">
@@ -49,13 +50,20 @@ const Update = () => {
                                         </div>
                                         <div className="form-control">
                                             <label className="label">
-                                                <span className="label-text">Password</span>
+                                                <span className="label-text">avaiable quantity</span>
                                             </label>
-                                            <input type="password" placeholder="password" name="password" className="input input-bordered" />
+                                            <input type="number" placeholder="quantity" defaultValue={loadedtoys.quantity} name="quantity" className="input input-bordered" />
+
+                                        </div>
+                                        <div className="form-control">
+                                            <label className="label">
+                                                <span className="label-text">description</span>
+                                            </label>
+                                            <input type="text" placeholder="description" defaultValue={loadedtoys.description} name="description" className="input input-bordered" />
 
                                         </div>
                                         <div className="form-control mt-6">
-                                            <input className='bg-pink-500 p-3 text-white rounded-xl' type="submit" value="update" />
+                                            <input className='bg-pink-500 p-3 text-white rounded-xl' type="submit" value="Update" />
                                         </div>
 
                                     </form>
