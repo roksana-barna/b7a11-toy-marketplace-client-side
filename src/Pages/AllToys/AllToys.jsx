@@ -6,7 +6,31 @@ const AllToys = () => {
     const allToys = useLoaderData();
     console.log(allToys)
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 w-9/12 mx-auto mt-20'>
+        <div className='w-7/12 mx-auto'>
+        <div >
+            <h2 className='text-xl text-teal-600 text-center font-bold my-6'>All Toys</h2>
+        </div>
+        <div>
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full">
+                    <thead>
+                        <tr>
+                            <th>sellerName</th>
+                            <th>Toy Name</th>
+                            <th>subCategory</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+
+                </table>
+                
+            </div>
+        </div >
+
+        <div>
+
             {
                 allToys.map(alltoy => <AllToysCard
                     key={alltoy._id}
@@ -15,6 +39,7 @@ const AllToys = () => {
                 ></AllToysCard>)
             }
 
+        </div>
         </div>
     );
 };

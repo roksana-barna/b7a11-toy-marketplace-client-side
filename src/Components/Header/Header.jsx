@@ -14,8 +14,13 @@ const Header = () => {
         <div className='flex text-pink-500 font-medium italic'>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/alltoys'>ALL Toys</Link></li>
-            <li><Link to='/mytoys'>My Toys</Link></li>
-            <li><Link to='/addatoy'>Add a Toy</Link></li>
+            {
+                user &&
+                <li><Link to='/mytoys'>My Toys</Link></li>
+            }
+            {
+                user && <li><Link to='/addatoy'>Add a Toy</Link></li>
+            }
             <li><Link to='/blog'>Blog</Link></li>
         </div>
     return (
@@ -44,15 +49,15 @@ const Header = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                            user ? <Link to='/login'><button onClick={handleLogOut} className="btn bg-pink-500" >LogOut</button></Link> :
-                                <Link to='/login'><button className="btn bg-pink-500">LogIn</button></Link>
-                        }
-                         {user &&
-                            <div className="tooltip tooltip-bottom ml-2" data-tip={user.displayName}>
+                        user ? <Link to='/login'><button onClick={handleLogOut} className="btn bg-pink-500" >LogOut</button></Link> :
+                            <Link to='/login'><button className="btn bg-pink-500">LogIn</button></Link>
+                    }
+                    {user &&
+                        <div className="tooltip tooltip-bottom ml-2" data-tip={user.displayName}>
                             <img className='w-10 h-10 rounded-2xl' src={user.photoURL} alt="" />
-                          </div>
-                        }
-                    
+                        </div>
+                    }
+
 
                 </div>
             </div>

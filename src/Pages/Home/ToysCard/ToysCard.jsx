@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../provider/AuthProvider';
 const ToysCard = ({ toy }) => {
+  const {user}=useContext(AuthContext);
   const { name, pictureUrl, rating, price,_id } = toy || {};
   return (
     <div className=''>
@@ -14,8 +16,10 @@ const ToysCard = ({ toy }) => {
           <h5> Price:${price}</h5>
           <p> Rating:{rating}</p>
           <div className="card-actions">
-            <Link to={`/viewdetails/${_id}`}> <button className="bg-red-300 text-teal-950 px-3 py-2 rounded-xl">View Details</button>
-</Link>
+           <Link to={`/viewdetails/${_id}`}> <button className="bg-red-300 text-teal-950 px-3 py-2 rounded-xl">View Details</button>
+            </Link>
+            <Link to='/login'></Link>
+           
           </div>
         </div>
       </div>
