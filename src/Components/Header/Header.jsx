@@ -49,8 +49,8 @@ const Header = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ? <Link to='/login'><button onClick={handleLogOut} className="btn bg-pink-500" >LogOut</button></Link> :
-                            <Link to='/login'><button className="btn bg-pink-500">LogIn</button></Link>
+                        user ? <Link to='/login'><button onClick={handleLogOut} className="btn bg-red-400" >LogOut</button></Link> :
+                            <Link to='/login'><button className="btn bg-red-400">LogIn</button></Link>
                     }
                     {user &&
                         <div className="tooltip tooltip-bottom ml-2" data-tip={user.displayName}>

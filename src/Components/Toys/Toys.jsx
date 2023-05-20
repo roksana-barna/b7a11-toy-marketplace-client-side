@@ -18,7 +18,7 @@ const Toys = () => {
     return (
 
         <div>
-            <h2 className='text-center text-2xl text-teal-500 font-bold m-4'>Dolls Categorys </h2>
+            <h2 className='text-center text-3xl text-teal-700 font-bold m-10'>Dolls Categorys </h2>
             <div className=' flex justify-center m-4'>
 
                 <div className="tabs tabs-boxed">
