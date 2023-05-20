@@ -1,9 +1,20 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 const ToysCard = ({ toy }) => {
   const {user}=useContext(AuthContext);
+  const navigate=useNavigate();
   const { name, pictureUrl, rating, price,_id } = toy || {};
+  const checkOuth=(id)=>{
+    if(user){
+      navigate(`/viewdetails/${id}`)
+    }
+    else{
+      navigate('/login', { state: { message: 'Please login first to show toy details!!!' } })
+
+    }
+
+  }
   return (
     <div className=''>
 
@@ -16,8 +27,10 @@ const ToysCard = ({ toy }) => {
           <h5> Price:${price}</h5>
           <p> Rating:{rating}</p>
           <div className="card-actions">
-           <Link to={`/viewdetails/${_id}`}> <button className="bg-red-300 text-teal-950 px-3 py-2 rounded-xl">View Details</button>
-            </Link>
+
+          
+             <button onClick={()=>checkOuth(_id)} className="bg-red-300 text-teal-950 px-3 py-2 rounded-xl">View Details</button>
+  
             <Link to='/login'></Link>
            
           </div>

@@ -9,6 +9,7 @@ const auth = getAuth(app);
 const Login = () => {
     const { signIn } = useContext(AuthContext);
     const location = useLocation();
+    const userLoginMessage = location.state && location.state.message;
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/";
     const [error, setError] = useState('')
@@ -35,7 +36,7 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-               
+
                 console.log(user);
                 navigate(from, { replace: true })
                 navigate('/')
@@ -67,8 +68,10 @@ const Login = () => {
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
+                            <span className='text-red-600 text-2xl text-bold'>{userLoginMessage}</span>
 
                             <h1 className="text-3xl  text-center font-bold text-pink-500"> Please Login!</h1>
+
                             <form onSubmit={handleLogin}>
                                 <div className="form-control">
                                     <label className="label">

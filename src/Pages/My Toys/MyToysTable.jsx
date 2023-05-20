@@ -7,9 +7,6 @@ const MyToysTable = ({ mytoy, handleDelete }) => {
     const { pictureUrl, sellerName, email, subCategory, rating, quantity, description, price, _id } = mytoy;
 
     return (
-        <div className="overflow-x-auto w-full">
-            <table className="table w-full">
-                <tbody>
                     <tr>
                         <td>
                             <div className="flex">
@@ -45,10 +42,7 @@ const MyToysTable = ({ mytoy, handleDelete }) => {
                         <td><button onClick={() => handleDelete(_id)} className="btn btn-circle btn-outline bg-red-400">X</button>
                         </td>
                     </tr>
-                </tbody>
-
-            </table>
-        </div>
+    
     );
 };
 

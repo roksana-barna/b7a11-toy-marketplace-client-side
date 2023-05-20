@@ -7,10 +7,7 @@ const AllToysCard = ({ alltoy }) => {
     const { user } = useContext(AuthContext);
     const { sellerName, subCategory, quantity, price, _id,name } = alltoy;
     return (
-        <div className='w-full mx-auto'>
-            <div className="overflow-x-auto w-full">
-                <table className="table w-full">
-                    <tbody className=''>
+         
                         <tr>
                             <td>
                                 {user?.displayName}
@@ -35,11 +32,7 @@ const AllToysCard = ({ alltoy }) => {
                             </td>
 
                         </tr>
-                    </tbody>
 
-                </table>
-            </div>
-        </div>
     );
 };
 

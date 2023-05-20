@@ -37,7 +37,7 @@ const MyToys = () => {
                 <h2 className='text-xl text-teal-600 text-center font-bold my-6'>All My Toys</h2>
             </div>
             <div>
-                <div className="overflow-x-auto w-full">
+                <div className="">
                     <table className="table w-full">
                         <thead>
                             <tr>
@@ -53,8 +53,7 @@ const MyToys = () => {
                                 <th>Delete</th>
                             </tr>
                         </thead>
-
-                    </table>
+                        <tbody>
                     {
                         myToys.map(mytoy => <MyToysTable
                             key={mytoy._id}
@@ -64,6 +63,8 @@ const MyToys = () => {
 
                         </MyToysTable>)
                     }
+                    </tbody>
+                    </table>
 
                 </div>
             </div >

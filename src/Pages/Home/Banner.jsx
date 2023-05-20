@@ -5,9 +5,9 @@ const Banner = () => {
     return (
         <div className='  bg-pink-50'>
 
-        <div className='flex'>
-        <div className='w-7/12 '>
-            <img className='max-w-full sm:w-auto ' src={banner} alt="" />
+        <div className='lg:flex'>
+        <div className='lg:w-7/12 '>
+            <img className='lg:w-full w-[600px] ' src={banner} alt="" />
         </div>
         <div className=' ml-12 space-y-5'>
             <h2 className='italic font-bold text-pink-300 text-5xl mt-20'>Cool KidS ShoP</h2>

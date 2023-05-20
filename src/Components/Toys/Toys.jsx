@@ -5,7 +5,7 @@ const Toys = () => {
     const [toys, setToys] = useState([])
     const [activeTab, setActiveTab] = useState("barbie");
     useEffect(() => {
-        fetch(`http://localhost:5000/toys/${activeTab}`)
+        fetch(`http://localhost:5000/single/toys/${activeTab}`)
             .then(res => res.json())
             .then(result => {
                 setToys(result);
