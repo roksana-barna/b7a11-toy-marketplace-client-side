@@ -29,7 +29,7 @@ const ToysCard = ({ toy }) => {
           <div className="card-actions">
 
           
-             <button onClick={()=>checkOuth(_id)} className="bg-red-300 text-teal-950 px-3 py-2 rounded-xl">View Details</button>
+             <button onClick={()=>checkOuth(_id)} className="bg-red-400 text-teal-950 px-3 py-2 rounded-xl">View Details</button>
   
             <Link to='/login'></Link>
            

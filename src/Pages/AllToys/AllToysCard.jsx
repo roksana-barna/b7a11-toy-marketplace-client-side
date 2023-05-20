@@ -27,7 +27,7 @@ const AllToysCard = ({ alltoy }) => {
                                 {quantity}
                             </td>
                             <td>
-                                <Link to={`/viewdetails/${_id}`}><button className="bg-pink-500 px-3 py-2 rounded-xl">View Details</button>
+                                <Link to={`/viewdetails/${_id}`}><button className="bg-red-400 px-3 py-2 rounded-xl">View Details</button>
                                 </Link>
                             </td>
 

@@ -42,18 +42,18 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <Update></Update>,
-        loader: ({ params }) => fetch(`http://localhost:5000/update/${params.id}`)
+        loader: ({ params }) => fetch(`https://b7a11-toy-marketplace-server-side-roksana-barna.vercel.app/update/${params.id}`)
       },
       {
         path: "/alltoys",
         element:<AllToys></AllToys>,
-        loader:()=>fetch('http://localhost:5000/toys')
+        loader:()=>fetch('https://b7a11-toy-marketplace-server-side-roksana-barna.vercel.app/toys')
 
       },
       {
         path: "/viewdetails/:id",
         element:<PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/viewdetails/${params.id}`)
+        loader: ({ params }) => fetch(`https://b7a11-toy-marketplace-server-side-roksana-barna.vercel.app/viewdetails/${params.id}`)
 
 
   

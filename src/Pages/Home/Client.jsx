@@ -7,7 +7,7 @@ import logo4 from '../../assets/logo5.jfif';
 
 const Client = () => {
     return (
-        <div className='mt-20 bg-pink-100'>
+        <div className='mt-16 bg-pink-100 mb-10 rounded-xl'>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2'>
             <div>
                 <h2 className='p-5'>Our Client</h2>

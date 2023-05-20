@@ -20,7 +20,7 @@ const AddAToy = () => {
     const toys = { name, pictureUrl, sellerName, email, subCategory, price, rating, quantity, description };
     console.log(toys);
     form.reset();
-    fetch('http://localhost:5000/toys', {
+    fetch('https://b7a11-toy-marketplace-server-side-roksana-barna.vercel.app/toys', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -97,7 +97,7 @@ const AddAToy = () => {
           </div>
 
           <div className="flex items-center justify-center">
-            <button type="submit" className="bg-pink-500 hover:bg-teal-700 px-10 mb-10 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Buy</button>
+            <button type="submit" className="bg-red-400 hover:bg-teal-700 px-10 mb-10 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Buy</button>
           </div>
         </form>
       </div>
