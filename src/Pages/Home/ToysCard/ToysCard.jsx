@@ -22,14 +22,14 @@ const ToysCard = ({ toy }) => {
         <figure className="px-10 pt-10  bg-pink-50">
           <img src={pictureUrl} alt="Shoes" className="rounded-xl" />
         </figure>
-        <div className="card-body items-center text-center bg-teal-50">
+        <div className="card-body items-center text-center bg-teal-100">
           <h2 className="card-title">Name:{name}</h2>
           <h5> Price:${price}</h5>
           <p> Rating:{rating}</p>
           <div className="card-actions">
 
           
-             <button onClick={()=>checkOuth(_id)} className="bg-red-400 text-teal-950 px-3 py-2 rounded-xl">View Details</button>
+             <button onClick={()=>checkOuth(_id)} className="bg-red-400 text-white px-3 py-2 rounded-xl">View Details</button>
   
             <Link to='/login'></Link>
            
