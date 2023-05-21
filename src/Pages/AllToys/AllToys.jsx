@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import AllToysCard from './AllToysCard';
+import useTitle from '../../Hooks/useTitle';
 
 const AllToys = () => {
     const allToys = useLoaderData();
     const [searchText,setSearchText]=useState('')
+    useTitle('AllToys');
     console.log(allToys)
     const handleSearch=()=>{
         fetch(`https://b7a11-toy-marketplace-server-side-roksana-barna.vercel.app/toyNameSearch/${searchText}`)

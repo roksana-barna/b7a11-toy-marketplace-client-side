@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import img2 from '../../assets/welliewishers.png'
 import { AuthContext } from '../../provider/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 
 const AddAToy = () => {
   const { user } = useContext(AuthContext);
+  useTitle('Add a Toy');
   const handleBuy = (event) => {
     event.preventDefault();
     const form = event.target;

@@ -5,8 +5,10 @@ import Gallary from '../../Components/Gallary/Gallary';
 import Carrosel from './Carrosel';
 import Client from './Client';
 import Help from './Help';
+import useTitle from '../../Hooks/useTitle';
 
 const Home = () => {
+    useTitle('Home');
     
     return (
         <div className='w-9/12 mx-auto'>
