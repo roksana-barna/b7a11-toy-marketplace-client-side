@@ -10,6 +10,7 @@ import Update from "../Pages/Update/Update";
 import AllToys from "../Pages/AllToys/AllToys";
 import ViewDetails from "../Components/ViewDetails";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import Blog from "../Pages/Blog/Blog";
 
 
 const router = createBrowserRouter([
@@ -55,10 +56,11 @@ const router = createBrowserRouter([
         element:<PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
         loader: ({ params }) => fetch(`https://b7a11-toy-marketplace-server-side-roksana-barna.vercel.app/viewdetails/${params.id}`)
 
-
-  
-
       },
+      {
+        path:"/blog",
+        element:<Blog></Blog>
+      }
 
 
     ]
