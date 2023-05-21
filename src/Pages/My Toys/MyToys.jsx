@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import  { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import MyToysTable from './MyToysTable';
 import useTitle from '../../Hooks/useTitle';
@@ -21,7 +21,7 @@ const MyToys = () => {
     const handleDelete = id => {
         const proceed = confirm("Are you want to delete?");
         if (proceed) {
-            fetch(`/toys/${id}`, {
+            fetch(`https://b7a11-toy-marketplace-server-side-roksana-barna.vercel.app/toys/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
