@@ -48,8 +48,6 @@ const router = createBrowserRouter([
       {
         path: "/alltoys",
         element:<AllToys></AllToys>
-        // loader:()=>fetch('https://b7a11-toy-marketplace-server-side-roksana-barna.vercel.app/toys')
-
       },
       {
         path: "/viewdetails/:id",

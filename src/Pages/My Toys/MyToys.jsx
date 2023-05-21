@@ -42,7 +42,7 @@ const MyToys = () => {
                 <h2 className='text-xl text-teal-600 text-center font-bold my-6'>All My Toys</h2>
             </div>
             <div>
-                <button  className='bg-teal-400 px-3 py-2 rounded text-white mr-3' onClick={()=>setSortPrice(1)}>Low Price</button>
+                <button  className='bg-teal-400 mb-5 px-3 py-2 rounded text-white mr-3' onClick={()=>setSortPrice(1)}>Low Price</button>
                 <button className='bg-teal-400 px-3 py-2 rounded text-white' onClick={()=>setSortPrice(-1)}>High Price</button>
             </div>
             <div>

@@ -38,7 +38,7 @@ const MyToysTable = ({ mytoy, handleDelete }) => {
                         <td>
                             {description}
                         </td>
-                        <td><Link to={`/update/${_id}`}><button className='bg-teal-500 p-2 rounded text-white'>update</button></Link></td>
+                        <td> <Link to={`/update/${_id}`}><button className='bg-teal-500 p-2 rounded text-white'>update</button></Link></td>
                         <td><button onClick={() => handleDelete(_id)} className="btn btn-circle btn-outline bg-red-400">X</button>
                         </td>
                     </tr>

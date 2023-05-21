@@ -1,33 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+
 import AllToysCard from './AllToysCard';
 import useTitle from '../../Hooks/useTitle';
 
 const AllToys = () => {
-    const[allToys,setAllToys]=useState([]);
-    const [isSearched,setIsSearched]=useState(false);
+    const [allToys, setAllToys] = useState([]);
+    const [isSearched, setIsSearched] = useState(false);
     useTitle('AllToys');
     console.log(allToys)
-    useEffect(()=> {
+    useEffect(() => {
         fetch(`https://b7a11-toy-marketplace-server-side-roksana-barna.vercel.app/toys`)
             .then(res => res.json())
             .then(data => setAllToys(data))
-    },[isSearched])
+    }, [isSearched])
 
-    
+
     const handleSearch = (e) => {
         e.preventDefault();
         const form = e.target;
         const text = form.search.value;
         console.log(text);
-        if(text){
+        if (text) {
             fetch(`https://b7a11-toy-marketplace-server-side-roksana-barna.vercel.app/toyNameSearch/${text}`)
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);
                     setAllToys(data);
                 });
-        }else {
+        } else {
             setIsSearched(!isSearched);
         }
     };
