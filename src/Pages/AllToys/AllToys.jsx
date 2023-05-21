@@ -1,32 +1,48 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import AllToysCard from './AllToysCard';
 import useTitle from '../../Hooks/useTitle';
 
 const AllToys = () => {
-    const allToys = useLoaderData();
-    const [searchText,setSearchText]=useState('')
+    const[allToys,setAllToys]=useState([]);
+    const [isSearched,setIsSearched]=useState(false);
     useTitle('AllToys');
     console.log(allToys)
-    const handleSearch=()=>{
-        fetch(`https://b7a11-toy-marketplace-server-side-roksana-barna.vercel.app/toyNameSearch/${searchText}`)
-        .then((result)=>result.json())
-        .then(data=>{
-            allToys(data)
-        });
+    useEffect(()=> {
+        fetch(`https://b7a11-toy-marketplace-server-side-roksana-barna.vercel.app/toys`)
+            .then(res => res.json())
+            .then(data => setAllToys(data))
+    },[isSearched])
+
+    
+    const handleSearch = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const text = form.search.value;
+        console.log(text);
+        if(text){
+            fetch(`https://b7a11-toy-marketplace-server-side-roksana-barna.vercel.app/toyNameSearch/${text}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    setAllToys(data);
+                });
+        }else {
+            setIsSearched(!isSearched);
+        }
+    };
 
 
-    }
     return (
         <div className='w-7/12 mx-auto'>
-            <div >
+            <div>
                 <h2 className='text-xl text-teal-600 text-center font-bold my-6' >All Toys</h2>
-                <div className='text-center p-5'>
-                    <input type='text'placeholder='search name'  onChange={(e)=>setSearchText(e.target.value)}
-                
-                className= ' bg-pink-300 p-1'/>{''}
-                <button className='bg-teal-300 p-1 text-white' onClick={handleSearch}>Search</button>
-                </div>
+                <form onSubmit={handleSearch} className='text-center p-5'>
+                    <input type='text' placeholder='search name' name='search'
+
+                        className=' bg-pink-300 p-1' />
+                    <button type='submit' className='bg-teal-300 p-1 text-white' >Search</button>
+                </form>
             </div>
             <div>
                 <div className="">

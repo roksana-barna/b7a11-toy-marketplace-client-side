@@ -18,7 +18,7 @@ const ToysCard = ({ toy }) => {
   return (
     <div className=''>
 
-      <div className="card w-96 bg-base-100 shadow-xl my-5">
+      <div data-aos="flip-right" data-aos-duration="1000" className="card w-96 bg-base-100 shadow-xl my-5 ">
         <figure className="px-10 pt-10  bg-pink-50">
           <img src={pictureUrl} alt="Shoes" className="rounded-xl" />
         </figure>

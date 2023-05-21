@@ -4,11 +4,16 @@ import img2 from"../../assets/banner.png";
 import img3 from"../../assets/images (2).jfif";
 import img4 from"../../assets/51M+-VopknL._AC_UL600_SR600,600_.jpg";
 import img5 from"../../assets/288-2883635_american-doll-in-canada-hd-png-download.png"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const Gallary = () => {
+    AOS.init()
     return (
 
-       <div>
+       <div data-aos="fade-up" data-aos-duration="1000">
+ 
         <h2 className='italic font-bold text-teal-700 text-5xl  text-center m-6 mb-14 mt-10'>Featured Dolls</h2>
         <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5'>
          <div>

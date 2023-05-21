@@ -3,10 +3,10 @@ import images from "../../assets/Boys and girls toys.jpg"
 
 const Help = () => {
     return (
-        <div className='mt-14'>
+        <div data-aos="fade-up" data-aos-duration="1000" className='mt-14'>
             <div className='md:flex'>
                 <div className='w-full '>
-<img className='h-96' src={images} alt="" />
+                    <img className='h-96' src={images} alt="" />
                 </div>
                 <div>
                     <h2 className='ml-10'>WHAT WE DO</h2>
@@ -16,7 +16,7 @@ const Help = () => {
 
                 </div>
             </div>
-            
+
         </div>
     );
 };
